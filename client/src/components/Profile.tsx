@@ -1,17 +1,39 @@
-import React, { Component } from "react";
 import { History } from "history";
+import React, { Component, useState } from "react";
+import { RouteComponentProps, withRouter } from "react-router-dom";
 import { config } from "../constant/config";
+import { UserContextType } from "../constant/types";
+import { UserContext } from "../Context";
+import { Consume } from "../Context/Consumer";
 
 interface Props {
   history?: History;
+  userData?: UserContextType;
 }
 interface State {}
 
-class Profile extends Component<Props, State> {
-  state = {};
+class Profile extends Component<Props & State & RouteComponentProps> {
+  state = {
+    camera: false,
+    data: false,
+  };
 
   render() {
-    const { history } = this.props;
+    const { history, userData } = this.props;
+    const { camera, data } = this.state;
+    if (!userData?.data) {
+      return (
+        <div className="container">
+          <div className="main_lhs">
+            <div className="loader"></div>
+          </div>
+        </div>
+      );
+    }
+
+    const {
+      data: { files, folder, name, space },
+    } = userData;
     return (
       <div className="profile_container">
         <div className="main_lhs">
@@ -23,12 +45,14 @@ class Profile extends Component<Props, State> {
             <div className="user">
               <div className="user--img" />
               <div className="user__name">
-                <h3>Jessie Roberts</h3>
-                <p>1458 files · 25 folders</p>
+                <h3>{name}</h3>
+                <p>
+                  {files} files · {folder} folders
+                </p>
               </div>
             </div>
             <p>
-              <em>32,5 GB </em>
+              <em>{space} </em>
               of 100 GB free
             </p>
             <div className="progress_bar">
@@ -73,8 +97,15 @@ class Profile extends Component<Props, State> {
                   <div className="file__name--main">Camera uploads</div>
                   <div className="file__name--sub" />
                 </div>
-                <div className="file__switch">
-                  <label className="label label--on">
+                <div
+                  className="file__switch"
+                  onClick={() => {
+                    this.setState({ camera: !camera });
+                  }}
+                >
+                  <label
+                    className={`label ${camera ? "label--on" : "label--off"}`}
+                  >
                     <input type="checkbox" className="label__input" />
                     <div className="label__circle" />
                   </label>
@@ -87,8 +118,15 @@ class Profile extends Component<Props, State> {
                   </div>
                   <div className="file__name--sub" />
                 </div>
-                <div className="file__switch">
-                  <label className="label label--off">
+                <div
+                  className="file__switch"
+                  onClick={() => {
+                    this.setState({ data: !data });
+                  }}
+                >
+                  <label
+                    className={`label ${data ? "label--on" : "label--off"}`}
+                  >
                     <input type="checkbox" className="label__input" />
                     <div className="label__circle" />
                   </label>
@@ -103,4 +141,4 @@ class Profile extends Component<Props, State> {
   }
 }
 
-export default Profile;
+export default Consume(withRouter(Profile), [UserContext]);

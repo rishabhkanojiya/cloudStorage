@@ -1,5 +1,9 @@
 /* eslint-disable */
-import React, { useContext } from "react";
+import React, { Component, ReactNode, useContext } from "react";
+
+interface Props {
+  children: React.ReactNode;
+}
 
 export function Consume(WrapperComponent, contexts) {
   const Consumer = React.forwardRef((props, ref) => {

@@ -1,4 +1,4 @@
-import { HomeResp, LocalResp, UserResp } from "./respType";
+import { Home, HomeResp, Local, LocalResp, User, UserResp } from "./respType";
 
 export interface PopUpContextType {
   showPopup: Boolean;
@@ -6,19 +6,19 @@ export interface PopUpContextType {
 }
 
 export interface UserContextType {
-  data: {};
+  data: User;
   setUser: (data: UserResp) => void;
   getUserData: () => void;
 }
 
 export interface HomeContextType {
-  data: {};
+  data: Home[];
   setHome: (data: HomeResp) => void;
   getHomeData: () => void;
 }
 
 export interface LocalContextType {
-  data: {};
+  data: Local[];
   setLocal: (data: LocalResp) => void;
   getLocalData: () => void;
 }

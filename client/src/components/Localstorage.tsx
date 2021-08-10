@@ -1,12 +1,74 @@
 import React, { Component } from "react";
+import Scrollbars from "react-custom-scrollbars";
+import { LocalContextType } from "../constant/types";
+import { LocalContext } from "../Context";
+import { Consume } from "../Context/Consumer";
 
-interface Props {}
+interface Props {
+  localData?: LocalContextType;
+}
 interface State {}
 
 class Localstorage extends Component<Props, State> {
   state = {};
 
+  renderFiles = () => {
+    const { localData } = this.props;
+
+    return localData.data.map((files) => {
+      let sClass = "";
+      switch (files.fromat) {
+        case "mp3":
+          sClass = "file--video";
+
+          break;
+        case "jpg":
+          sClass = "file--image";
+
+          break;
+        case "archive":
+          sClass = "file--archive";
+
+          break;
+        case "doc":
+          sClass = "file--document";
+
+          break;
+
+        default:
+          sClass = "file--video";
+          break;
+      }
+      return (
+        <div className="file">
+          <div className={`file__img ${sClass}`}>
+            <i className="fa fa-music" aria-hidden="true" />
+          </div>
+          <div className="file__name">
+            <div className="file__name--main">{files.name}</div>
+            <div className="file__name--sub">
+              {files.fromat} · {files.size} mb
+            </div>
+          </div>
+          <div className="file__more">
+            <i className="fa fa-ellipsis-v" aria-hidden="true" />
+          </div>
+        </div>
+      );
+    });
+  };
   render() {
+    const { localData } = this.props;
+    const { renderFiles } = this;
+    if (!localData?.data) {
+      return (
+        <div className="container">
+          <div className="main_lhs">
+            <div className="loader"></div>
+          </div>
+        </div>
+      );
+    }
     return (
       <div className="local_container">
         <div className="main_lhs">
@@ -46,55 +108,53 @@ class Localstorage extends Component<Props, State> {
                 <div className="category__items--title">Android</div>
               </li>
             </ul>
-            <div className="files">
-              <div className="file">
-                <div className="file__img file--video">
-                  <i className="fa fa-music" aria-hidden="true" />
+
+            <div className="files" style={{ height: "60%" }}>
+              <Scrollbars style={{ width: "inherit", height: "100%" }} autoHide>
+                {renderFiles()}
+                <div className="file">
+                  <div className="file__img file--image">
+                    <i className="fa fa-music" aria-hidden="true" />
+                  </div>
+                  <div className="file__name">
+                    <div className="file__name--main">
+                      Franky Wah - Aftertime
+                    </div>
+                    <div className="file__name--sub">mp3 · 9.2 mb</div>
+                  </div>
+                  <div className="file__more">
+                    <i className="fa fa-ellipsis-v" aria-hidden="true" />
+                  </div>
                 </div>
-                <div className="file__name">
-                  <div className="file__name--main">Franky Wah - Aftertime</div>
-                  <div className="file__name--sub">mp3 · 9.2 mb</div>
+                <div className="file">
+                  <div className="file__img file--archive">
+                    <i className="fa fa-music" aria-hidden="true" />
+                  </div>
+                  <div className="file__name">
+                    <div className="file__name--main">
+                      Franky Wah - Aftertime
+                    </div>
+                    <div className="file__name--sub">mp3 · 9.2 mb</div>
+                  </div>
+                  <div className="file__more">
+                    <i className="fa fa-ellipsis-v" aria-hidden="true" />
+                  </div>
                 </div>
-                <div className="file__more">
-                  <i className="fa fa-ellipsis-v" aria-hidden="true" />
+                <div className="file">
+                  <div className="file__img file--video">
+                    <i className="fa fa-music" aria-hidden="true" />
+                  </div>
+                  <div className="file__name">
+                    <div className="file__name--main">
+                      Franky Wah - Aftertime
+                    </div>
+                    <div className="file__name--sub">mp3 · 9.2 mb</div>
+                  </div>
+                  <div className="file__more">
+                    <i className="fa fa-ellipsis-v" aria-hidden="true" />
+                  </div>
                 </div>
-              </div>
-              <div className="file">
-                <div className="file__img file--image">
-                  <i className="fa fa-music" aria-hidden="true" />
-                </div>
-                <div className="file__name">
-                  <div className="file__name--main">Franky Wah - Aftertime</div>
-                  <div className="file__name--sub">mp3 · 9.2 mb</div>
-                </div>
-                <div className="file__more">
-                  <i className="fa fa-ellipsis-v" aria-hidden="true" />
-                </div>
-              </div>
-              <div className="file">
-                <div className="file__img file--archive">
-                  <i className="fa fa-music" aria-hidden="true" />
-                </div>
-                <div className="file__name">
-                  <div className="file__name--main">Franky Wah - Aftertime</div>
-                  <div className="file__name--sub">mp3 · 9.2 mb</div>
-                </div>
-                <div className="file__more">
-                  <i className="fa fa-ellipsis-v" aria-hidden="true" />
-                </div>
-              </div>
-              <div className="file">
-                <div className="file__img file--video">
-                  <i className="fa fa-music" aria-hidden="true" />
-                </div>
-                <div className="file__name">
-                  <div className="file__name--main">Franky Wah - Aftertime</div>
-                  <div className="file__name--sub">mp3 · 9.2 mb</div>
-                </div>
-                <div className="file__more">
-                  <i className="fa fa-ellipsis-v" aria-hidden="true" />
-                </div>
-              </div>
+              </Scrollbars>
             </div>
           </div>
         </div>
@@ -104,4 +164,4 @@ class Localstorage extends Component<Props, State> {
   }
 }
 
-export default Localstorage;
+export default Consume(Localstorage, [LocalContext]);

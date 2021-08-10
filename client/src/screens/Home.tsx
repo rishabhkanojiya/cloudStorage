@@ -10,7 +10,7 @@ class MainHome extends Component<Props, State> {
   render() {
     const { props } = this;
 
-    return <Home {...props} />;
+    return <Home />;
   }
 }
 

@@ -8,8 +8,7 @@ class MainProfile extends Component<Props, State> {
   state = {};
 
   render() {
-    const { props } = this;
-    return <Profile {...props} />;
+    return <Profile />;
   }
 }
 

@@ -10,7 +10,7 @@ class MainLocalstorage extends Component<Props, State> {
   render() {
     const { props } = this;
 
-    return <Localstorage {...props} />;
+    return <Localstorage />;
   }
 }
 

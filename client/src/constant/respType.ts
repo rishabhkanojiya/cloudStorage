@@ -9,19 +9,19 @@ export interface UserResp {
   user: User;
 }
 
-interface Local {
+export interface Local {
   name: string;
   fromat: string;
   size: number;
 }
 
-interface Home {
+export interface Home {
   name: string;
   file: number;
   size: number;
 }
 
-interface User {
+export interface User {
   name: string;
   files: string;
   folder: string;

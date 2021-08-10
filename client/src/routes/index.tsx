@@ -35,7 +35,13 @@ class Routes extends Component<Props & RouteComponentProps> {
   render() {
     const { location, history } = this.props;
 
-    let loaderMarkUp = <div className="loader"></div>;
+    let loaderMarkUp = (
+      <div className="container">
+        <div className="main_lhs">
+          <div className="loader"></div>
+        </div>
+      </div>
+    );
     const myRoutes = routesConfig.map((el, index) => {
       let Component = withRouter(el.component);
       let path = el.path;
