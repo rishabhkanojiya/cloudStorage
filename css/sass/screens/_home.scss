@@ -1,0 +1,232 @@
+@import "../common";
+
+.home_container {
+  max-height: 100%;
+  max-width: 100%;
+  font-size: 1.4rem;
+  height: 100%;
+
+  margin: 0 0 0 3rem;
+  @media only screen and (max-width: $bp-small) {
+    margin: 0;
+  }
+
+  display: flex;
+}
+
+.home_container .main_lhs {
+  height: 100vh;
+
+  width: 30rem;
+
+  @media only screen and (max-width: $bp-small) {
+    width: 100%;
+  }
+
+  min-width: 27rem;
+  background-color: #ffffff;
+  box-shadow: var(--shadow-dark);
+
+  display: flex;
+  flex-direction: column;
+
+  &__hero {
+    background-color: $primary-color;
+    color: white;
+    height: 20rem;
+    padding: 5rem 3rem;
+
+    .progress_bar {
+      width: 100%;
+
+      background-color: rgba($primary-color-dark, 0.7);
+      margin-top: 1rem;
+
+      border-radius: 50rem;
+      //   padding: 2px;
+
+      .progress {
+        width: 60%;
+        padding: 1px;
+        background-color: $secondary-color;
+      }
+    }
+  }
+
+  &__hero > h1 {
+  }
+
+  &__hero p {
+    color: rgba(white, 0.7);
+  }
+
+  p > em {
+    color: rgba(white, 1);
+
+    font-style: normal;
+    font-size: 1.75rem;
+  }
+
+  .content {
+    background-color: white;
+    // background-color
+    // border-radius: 5rem;
+    // padding: 3rem;
+    border-radius: 3rem 3rem 0 0;
+    margin-top: -3rem;
+    height: 100%;
+
+    .search {
+      display: flex;
+
+      background-color: rgb(245, 247, 252);
+      border-radius: 5rem;
+      padding: 0.5rem;
+      margin: 2rem 2rem;
+      align-items: center;
+      .text {
+        border: none;
+        text-decoration: none;
+        margin-left: 1rem;
+        background-color: rgb(245, 247, 252);
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    .search div {
+      padding-left: 1rem;
+    }
+
+    .tab {
+      display: flex;
+      margin: 1rem 0;
+      justify-content: space-around;
+      text-transform: capitalize;
+      border-bottom: 1px solid rgba($color: #000000, $alpha: 0.1);
+
+      .active {
+        padding: 0 2rem;
+        border-bottom: 3px solid $primary-color;
+      }
+    }
+  }
+
+  // @include menu;
+
+  // .menu {
+  //   display: flex;
+  //   list-style: none;
+  //   justify-content: space-around;
+  //   padding: 2rem 0;
+  //   box-shadow: var(--shadow-dark);
+  //   align-items: center;
+
+  //   li {
+  //     cursor: pointer;
+  //     // transform: rotate(45deg);
+  //   }
+
+  //   .special {
+  //     transform: rotate(45deg);
+  //     display: inline-block;
+  //     padding: 0.5rem 1rem;
+  //     margin: -1rem;
+  //     border-radius: 1rem;
+
+  //     color: white;
+  //     background-color: rgb(149, 159, 186);
+  //   }
+
+  //   .active {
+  //     display: inline-block;
+  //     padding: 0.6rem 1rem;
+  //     margin: -1rem;
+  //     border-radius: 1rem;
+
+  //     color: $primary-color;
+  //     background-color: $lightbg-color;
+  //   }
+  // }
+}
+
+.main_rhs {
+  //   @media only screen and (max-width: $bp-small) {
+  //     // margin: 0;
+  //     width: 0px;
+  //   }
+  opacity: 0;
+}
+
+.folder {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem 1rem;
+
+  justify-content: center;
+  @media only screen and (max-width: $bp-small) {
+    justify-content: space-around;
+  }
+
+  .card {
+    border-radius: 1rem;
+    padding: 1rem;
+    margin: 0.5rem;
+
+    @media only screen and (max-width: $bp-small) {
+      margin: 1rem;
+    }
+
+    background-color: rgb(245, 247, 252);
+
+    display: flex;
+    justify-content: space-around;
+
+    .left {
+      width: 90%;
+      text-align: left;
+
+      &__title {
+        font-weight: 600;
+        color: black;
+      }
+
+      &__member {
+        display: flex;
+        list-style: none;
+
+        li {
+          display: inline-block;
+          padding: 0.4rem 1rem;
+          margin-top: 1rem;
+          // width: 3rem;
+          color: white;
+          border: 2px solid white;
+          // height: 3rem;
+          background: rgb(149, 159, 186);
+          border-radius: 1rem;
+        }
+
+        li:not(:first-child) {
+          margin-left: -1rem;
+        }
+      }
+
+      //   &__member:not(:first-child) {
+      //     margin-left: -1rem;
+      //   }
+    }
+    &__icon {
+      color: $icons-color;
+      margin: 0 -1rem;
+
+      @media only screen and (max-width: $bp-small) {
+        margin: 0 1rem;
+      }
+    }
+  }
+}
+
+@include menu;

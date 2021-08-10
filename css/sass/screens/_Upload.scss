@@ -1,0 +1,75 @@
+@import "../common";
+
+.popup.in {
+  //   .in {
+  position: fixed;
+  bottom: 0;
+  width: inherit;
+  height: 20rem;
+  border-radius: 13rem 13rem 0 0;
+  z-index: 99999;
+  background-color: $popup-bg;
+  box-shadow: var(--shadow-dark);
+  //   }
+  animation: popButton 0.4s forwards 0s ease-in-out;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .btn__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .button {
+      text-align: center;
+      margin: 1rem;
+      padding: 1rem;
+
+      animation: popButton 0.5s forwards 0s ease-in-out;
+
+      i {
+        @include centerAlign(5rem);
+
+        color: $primary-color;
+        background-color: rgb(232, 249, 251);
+        border-radius: 2rem;
+      }
+    }
+
+    .button.up {
+      padding-bottom: 10rem;
+    }
+  }
+
+  .close {
+    animation: popButton 0.5s forwards 0s ease-in-out;
+
+    i {
+      transform: rotate(45deg);
+      font-size: 2rem;
+    }
+    margin-top: -7rem;
+    @include centerAlign(5rem);
+    color: $primary-color;
+    background-color: rgb(232, 249, 251);
+    border-radius: 90rem;
+  }
+}
+.popup.out {
+  animation: popButton 0.5s reverse 0s ease-in-out;
+  opacity: 0;
+  display: none;
+  z-index: -9999;
+}
+
+@keyframes popButton {
+  0% {
+    transform: translateY(200px);
+  }
+  76% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: rotate(xx) translateY(0);
+  }
+}

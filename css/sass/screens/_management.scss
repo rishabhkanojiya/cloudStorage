@@ -1,0 +1,108 @@
+@import "../common";
+
+.manage_container {
+  max-height: 100%;
+  max-width: 100%;
+  font-size: 1.4rem;
+  height: 100%;
+
+  margin: 0 0 0 3rem;
+  @media only screen and (max-width: $bp-small) {
+    margin: 0;
+  }
+
+  display: flex;
+}
+
+.manage_container .main_lhs {
+  height: 100vh;
+
+  width: 30rem;
+
+  @media only screen and (max-width: $bp-small) {
+    width: 100%;
+  }
+
+  min-width: 27rem;
+  background-color: #ffffff;
+  box-shadow: var(--shadow-dark);
+
+  display: flex;
+  flex-direction: column;
+
+  &__hero {
+    background-color: white;
+    color: $primary-text;
+    padding: 5rem 3rem 0 3rem;
+  }
+
+  .content {
+    background-color: white;
+    // background-color
+    // border-radius: 5rem;
+    // padding: 3rem;
+    border-radius: 3rem 3rem 0 0;
+    height: 100%;
+
+    .category {
+      display: flex;
+      list-style: none;
+      justify-content: center;
+      &__items {
+        margin: 1rem;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        &--img {
+          @include centerAlign(2rem);
+          margin: 1rem;
+          border-radius: 2rem;
+        }
+        &--title {
+          margin-top: 0.5rem;
+        }
+
+        @include colours;
+      }
+    }
+
+    .files {
+      .file {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        &__name {
+          &--main {
+          }
+          &--sub {
+          }
+        }
+
+        &__img {
+          margin: 1rem;
+          text-align: center;
+          padding: 1.5rem 2rem;
+          display: inline-block;
+          background-color: rgb(232, 249, 251);
+          border-radius: 2rem;
+          @include colours();
+        }
+        &__more {
+          flex: auto;
+          text-align: right;
+          padding-right: 1rem;
+          margin: 1rem;
+        }
+
+        @include colours(0.1);
+      }
+    }
+  }
+
+  @include menu;
+}
+
+.main_rhs {
+  opacity: 0;
+}

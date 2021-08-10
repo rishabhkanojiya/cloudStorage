@@ -1,0 +1,129 @@
+@import "../common";
+
+.local_container {
+  max-height: 100%;
+  max-width: 100%;
+  font-size: 1.4rem;
+  height: 100%;
+
+  margin: 0 0 0 3rem;
+  @media only screen and (max-width: $bp-small) {
+    margin: 0;
+  }
+
+  display: flex;
+}
+
+.local_container .main_lhs {
+  height: 100vh;
+
+  width: 30rem;
+
+  @media only screen and (max-width: $bp-small) {
+    width: 100%;
+  }
+
+  min-width: 27rem;
+  background-color: #ffffff;
+  box-shadow: var(--shadow-dark);
+
+  display: flex;
+  flex-direction: column;
+
+  &__hero {
+    background-color: white;
+    color: $primary-text;
+    padding: 5rem 3rem 0 3rem;
+  }
+
+  .content {
+    background-color: white;
+    // background-color
+    // border-radius: 5rem;
+    // padding: 3rem;
+    border-radius: 3rem 3rem 0 0;
+    height: 100%;
+
+    .search {
+      display: flex;
+
+      background-color: rgb(245, 247, 252);
+      border-radius: 5rem;
+      padding: 0.5rem;
+      margin: 2rem 2rem;
+      align-items: center;
+      .text {
+        border: none;
+        text-decoration: none;
+        margin-left: 1rem;
+        background-color: rgb(245, 247, 252);
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    .search div {
+      padding-left: 1rem;
+    }
+
+    .category {
+      display: flex;
+      list-style: none;
+      justify-content: center;
+      &__items {
+        margin: 1rem;
+        // padding: 1rem;
+        text-align: center;
+        &--img {
+          padding: 1.5rem 2rem;
+          display: inline-block;
+          background-color: rgb(232, 249, 251);
+          border: 1rem;
+          border-radius: 2rem;
+        }
+        &--title {
+          margin-top: 0.5rem;
+        }
+
+        @include colours(0.1);
+      }
+    }
+
+    .files {
+      .file {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        &__name {
+          &--main {
+          }
+          &--sub {
+          }
+        }
+        &__img {
+          margin: 1rem;
+          text-align: center;
+          padding: 1.5rem 2rem;
+          display: inline-block;
+          background-color: rgb(232, 249, 251);
+          border-radius: 2rem;
+        }
+        &__more {
+          flex: auto;
+          text-align: right;
+          padding-right: 1rem;
+          margin: 1rem;
+        }
+        @include colours(0.1);
+      }
+    }
+  }
+
+  @include menu;
+}
+
+.main_rhs {
+  opacity: 0;
+}

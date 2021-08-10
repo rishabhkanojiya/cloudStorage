@@ -1,0 +1,156 @@
+@import "../common";
+
+.profile_container {
+  max-height: 100%;
+  max-width: 100%;
+  font-size: 1.4rem;
+  height: 100%;
+
+  margin: 0 0 0 3rem;
+  @media only screen and (max-width: $bp-small) {
+    margin: 0;
+  }
+
+  display: flex;
+}
+
+.profile_container .main_lhs {
+  height: 100vh;
+
+  width: 30rem;
+
+  @media only screen and (max-width: $bp-small) {
+    width: 100%;
+  }
+
+  min-width: 27rem;
+  background-color: #ffffff;
+  box-shadow: var(--shadow-dark);
+
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    background-color: white;
+    color: $primary-text;
+    padding: 5rem 3rem 0 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__hero {
+    height: 20rem;
+    padding: 1rem 3rem;
+    color: $primary-text;
+
+    .user {
+      display: flex;
+      &--img {
+        @include centerAlign(6rem);
+
+        background-color: $icons-color;
+        border-radius: 2rem;
+        margin: 0 2rem 2rem 0;
+      }
+    }
+
+    p > em {
+      font-weight: bold;
+      font-style: normal;
+      font-size: 1.75rem;
+    }
+
+    .progress_bar {
+      width: 100%;
+
+      background-color: rgba($primary-color-dark, 0.7);
+      margin-top: 1rem;
+
+      border-radius: 50rem;
+      //   padding: 2px;
+
+      .progress {
+        width: 60%;
+        padding: 1px;
+        background-color: $secondary-color;
+      }
+    }
+  }
+
+  .content {
+    background-color: white;
+    // background-color
+    // border-radius: 5rem;
+    // padding: 3rem;
+    border-radius: 3rem 3rem 0 0;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    .btn {
+      align-self: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 4rem;
+      width: 80%;
+      border: 2px solid $secondary-color;
+      border-radius: 99rem;
+      padding: 0 2rem;
+      color: $secondary-color;
+      font-weight: bold;
+      margin-bottom: 2rem;
+    }
+
+    .files {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .file {
+        margin-top: 1rem;
+        color: $primary-text;
+        width: 90%;
+        background-color: $lightbg-color;
+        display: flex;
+        align-items: center;
+        border-radius: 1rem;
+        justify-content: space-between;
+        padding-right: 2rem;
+        &__name {
+          margin: 0 2rem;
+          padding: 1rem 0;
+
+          &--main {
+            font-weight: bold;
+          }
+          &--sub {
+            font-weight: 100;
+            font-size: 1rem;
+          }
+        }
+
+        &__more {
+          //   flex: auto;
+          //   text-align: right;
+          //   padding-right: 1rem;
+          //   margin-left: 3rem;
+          //   font-weight: bold;
+        }
+
+        &__switch {
+          //   flex: auto;
+
+          @include switchComp;
+        }
+      }
+    }
+  }
+
+  @include menu;
+}
+
+.main_rhs {
+  opacity: 0;
+}
