@@ -1,0 +1,61 @@
+{
+  "user": {
+    "name": "Rishabh Kanojiya",
+    "files": "1233",
+    "folder": "25",
+    "space": "32.1",
+    "cameraUpload": true,
+    "dataTrans": false
+  },
+
+  "home": [
+    {
+      "name": "The next big thing",
+      "file": 12,
+      "size": 2.1
+    },
+    {
+      "name": "London Meetup ",
+      "file": 9,
+      "size": 3
+    },
+    {
+      "name": "Top Secret",
+      "file": 7,
+      "size": 1.2
+    },
+    {
+      "name": "Freebie project",
+      "file": 4,
+      "size": 2.3
+    }
+  ],
+
+  "local": [
+    {
+      "name": "Franky Wah - Aftertime",
+      "fromat": "mp3",
+      "size": 6.1
+    },
+    {
+      "name": "Annie's new car",
+      "fromat": "jpg",
+      "size": 1.1
+    },
+    {
+      "name": "Top secret archive",
+      "fromat": "archive",
+      "size": 620.1
+    },
+    {
+      "name": "On the top of the world",
+      "fromat": "doc",
+      "size": 6.1
+    },
+    {
+      "name": "another Top secret archive",
+      "fromat": "archive",
+      "size": 620.1
+    }
+  ]
+}

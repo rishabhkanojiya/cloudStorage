@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import Menu from "./Menu";
-
 interface Props {}
 interface State {}
 

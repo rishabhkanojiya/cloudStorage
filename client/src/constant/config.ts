@@ -1,6 +1,6 @@
-interface configType {}
-
 export const config = {
+  BASE_API: "https://my-json-server.typicode.com/rishabhkanojiya/data_Cloud/",
+
   routes: {
     home: "/home",
     onBoard: "/onBoard",
