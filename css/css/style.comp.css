@@ -228,6 +228,9 @@ body {
   flex-wrap: wrap;
   margin: 1rem 1rem;
   justify-content: center; }
+  @media only screen and (max-width: 23.438em) {
+    .folder {
+      justify-content: space-around; } }
   .folder .card {
     border-radius: 1rem;
     padding: 1rem;
@@ -260,6 +263,9 @@ body {
     .folder .card__icon {
       color: #959fba;
       margin: 0 -1rem; }
+      @media only screen and (max-width: 23.438em) {
+        .folder .card__icon {
+          margin: 0 1rem; } }
 
 .menu {
   font-size: 1.4rem;
